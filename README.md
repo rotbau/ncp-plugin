@@ -6,3 +6,8 @@ To run the plugin:
 
 To cleanup after run:
 ```./sonobuoy delete --wait```
+
+To retrieve results after test run:
+```./sonobuoy retrieve```
+
+This will download a tar file.  If you untar the results are written in the logs in the plugin directory
