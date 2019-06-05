@@ -1,0 +1,24 @@
+sonobuoy-config:
+  driver: DaemonSet
+  plugin-name: ncp-plugin
+  result-type: ncp-plugin
+spec:
+  command:
+  - sh
+  - -c
+  - /ncp_info.sh && sleep 3600
+  image: harbor.vdoubleb.lan/sonobuoy/ncp-plugin
+  imagePullPolicy: Always
+  name: ncp-plugin
+  securityContext:
+    privileged: true
+  volumeMounts:
+  - mountPath: /tmp/results
+    name: results
+    readOnly: false
+  - mountPath: /var/log/ncp
+    name: cnipath
+extra-volumes:
+- name: cnipath
+  hostPath:
+    path: /etc/cni/net.d

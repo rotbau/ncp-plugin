@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pd
+spec:
+  containers:
+  - name: test-container
+    image: nginx
+    volumeMounts:
+    - mountPath: /etc/cni/net.d
+      name: cnipath
+    - mountPath: /usr/share/nginx/html
+      name: shared-data
+  volumes:
+  - name: shared-data
+    emptyDir: {}
+  - name: cnipath
+    hostPath:
+      # directory location on host
+      path: /etc/cni/net.d
+      # this field is optional
+      type: Directory
