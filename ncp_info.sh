@@ -3,9 +3,10 @@ set -o nounset
 
 RESULTS_DIR="${RESULTS_DIR:-/tmp/results}"
 
+# Get NCP version from Kubernetes Node
 cat /var/log/ncp/10-nsx.conf >"${RESULTS_DIR}/ncp_info"
-# echo -n "${RESULTS_DIR}/ncp_info" >"${RESULTS_DIR}/done"
-curl -k -u admin:D1llh0le! https://10.173.62.62/api/v1/upgrade/nodes-summary >"${RESULTS_DIR}/api_info"
-# echo -n "${RESULTS_DIR}/api_info" >"${RESULTS_DIR}/done"
-cat "'${RESULTS_DIR}/ncp_info' '${RESULTS_DIR}/api_info'" >"${$RESULTS_DIR}/done"
+echo -n "${RESULTS_DIR}/ncp_info" >"${RESULTS_DIR}/done"
+
+# Get number of PODS running on Kubernetes Cluster
+#/usr/local/bin/kubectl get pods --all-namespaces |wc -l > "${RESULTS_DIR}/pods_info"
 

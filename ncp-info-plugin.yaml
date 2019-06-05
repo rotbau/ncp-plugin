@@ -7,7 +7,7 @@ spec:
   - sh
   - -c
   - /ncp_info.sh && sleep 3600
-  image: harbor.vdoubleb.lan/sonobuoy/ncp-plugin
+  image: harbor.vdoubleb.lan/sonobuoy/ncp-plugin:v1
   imagePullPolicy: Always
   name: ncp-plugin
   securityContext:

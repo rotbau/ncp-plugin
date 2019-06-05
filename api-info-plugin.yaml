@@ -1,0 +1,18 @@
+sonobuoy-config:
+  driver: DaemonSet
+  plugin-name: nsxapi-plugin
+  result-type: nsxapi-plugin
+spec:
+  command:
+  - sh
+  - -c
+  - /api_info.sh && sleep 3600
+  image: harbor.vdoubleb.lan/sonobuoy/nsxapi-plugin:v1
+  imagePullPolicy: Always
+  name: nsxapi-plugin
+  securityContext:
+    privileged: true
+  volumeMounts:
+  - mountPath: /tmp/results
+    name: results
+    readOnly: false

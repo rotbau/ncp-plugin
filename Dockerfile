@@ -8,5 +8,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
 
 COPY kubectl /usr/local/bin/
 COPY ncp_info.sh /ncp_info.sh
+COPY api_info.sh /api_info.sh
 
+#CMD ["/bin/bash", "-c", "/api_info.sh"]
 CMD ["/bin/bash", "-c", "/ncp_info.sh"]
