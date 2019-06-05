@@ -1,2 +1,2 @@
-# cis-scorecard
-CIS Score Card for Kubernetes Deployments
+# Sonobuoy NCP Plugin
+Sonobuoy plugin for checking NCP version on Kubernetes nodes
